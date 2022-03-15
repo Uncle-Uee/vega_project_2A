@@ -1,2 +1,2 @@
-# vega_project_2A
+# Vega Project 2A
 Vega 2A Project
