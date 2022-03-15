@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,7 +7,7 @@ public class ChangeColour : MonoBehaviour
 
     [SerializeField]
     private SpriteRenderer _spriteRenderer;
-
+    
     #endregion
 
     #region UNITY METHODS
