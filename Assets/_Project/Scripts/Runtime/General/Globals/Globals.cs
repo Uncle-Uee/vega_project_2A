@@ -1,18 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class Globals : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
+    public static class Globals
     {
-        
-    }
+        #region VARIABLES
+        #endregion
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        #region METHODS
+        #endregion
     }
-}

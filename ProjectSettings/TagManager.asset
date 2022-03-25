@@ -51,12 +51,18 @@ TagManager:
   - name: Ground
     uniqueID: 2382612859
     locked: 0
+  - name: Enviro-Details
+    uniqueID: 458233099
+    locked: 0
+  - name: Enviro-Bottom
+    uniqueID: 3606568285
+    locked: 0
   - name: Weapon
     uniqueID: 2854533073
     locked: 0
   - name: Entity
     uniqueID: 3787565307
     locked: 0
-  - name: Environment
+  - name: Enviro-Top
     uniqueID: 2865629165
     locked: 0

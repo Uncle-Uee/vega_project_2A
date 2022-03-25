@@ -82,7 +82,7 @@ namespace Rogue.Player
         public void CheckInputForMovement(Vector2 inputAxis)
         {
             IsMoving = inputAxis != Vector2.zero;
-            AnimationController.SetIsMoving(IsMoving);
+            AnimationController.SetIsMoving(inputAxis != Vector2.zero);
         }
 
         #endregion
