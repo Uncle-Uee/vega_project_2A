@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c2c745480e942d2948f4a479d3f6ee4, type: 3}
+  m_Name: texture-keywords
+  m_EditorClassIdentifier: 
+  BaseMapKeys:
+  - bmap
+  - bmap_
+  - b_map
+  - base
+  - basem
+  - base_m
+  - basemap
+  - base_map
+  - dmap
+  - dmap_
+  - d_map
+  - diff
+  - diff_
+  - diffm
+  - diff_m
+  - diffmap
+  - diff_map
+  - diffuse
+  - diffuse_
+  - diffusem
+  - diffuse_m
+  - diffusemap
+  - diffuse_map
+  - alb
+  - alb_
+  - albmap
+  - alb_map
+  - albm
+  - alb_m
+  - albedo
+  - albedo_
+  - albedom
+  - albedo_m
+  - albedomap
+  - albedo_map
+  MetallicMapKeys:
+  - rough
+  - rough_
+  - roughm
+  - rough_m
+  - roughmap
+  - rough_map
+  - metal
+  - metal_
+  - metalm
+  - metal_m
+  - metalmap
+  - metal_map
+  - metallic
+  - metallic_
+  - metallicm
+  - metallic_m
+  - metallicmap
+  - metallic_map
+  NormalMapKeys:
+  - nmap
+  - n_map
+  - nor
+  - nor_
+  - nor_m
+  - nor_map
+  - norm
+  - norm_map
+  - normal
+  - normal_map
+  - bmap
+  - b_map
+  - bump
+  - bumpm
+  - bump_m
+  - bump_map
+  OcclusionMapKeys:
+  - roughao
+  - rough_ao
+  - roughaomap
+  - roughao_m
+  - roughao_map
+  - rough_ao_m
+  - rough_ao_map
+  - ao
+  - ao_
+  - aom
+  - ao_m
+  - aomap
+  - ao_map
+  - occlusion
+  - occlusionm
+  - occlusion_m
+  - occlusionmap
+  - occlusion_map

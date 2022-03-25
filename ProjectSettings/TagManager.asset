@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Weapon
   layers:
   - Default
   - TransparentFX
@@ -11,9 +12,9 @@ TagManager:
   - Player
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Enemy
+  - Weapon/Player
+  - Weapon/Enemy
   - 
   - 
   - 
@@ -50,6 +51,12 @@ TagManager:
   - name: Ground
     uniqueID: 2382612859
     locked: 0
+  - name: Weapon
+    uniqueID: 2854533073
+    locked: 0
   - name: Entity
     uniqueID: 3787565307
+    locked: 0
+  - name: Environment
+    uniqueID: 2865629165
     locked: 0

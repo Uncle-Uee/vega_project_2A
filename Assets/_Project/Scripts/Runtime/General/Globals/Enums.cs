@@ -1,0 +1,3 @@
+namespace Rogue.General.Globals
+{
+}

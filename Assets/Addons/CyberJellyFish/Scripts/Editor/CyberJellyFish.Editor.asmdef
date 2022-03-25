@@ -1,0 +1,17 @@
+{
+    "name": "CyberJellyFish.Editor",
+    "references": [
+        "GUID:ac403b1a1d4fb554289021d7562800ba"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

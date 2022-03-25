@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 8a1a4df45ad6c01449d3a0861d670d3e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - PlayerSo: {fileID: 11400000, guid: 04c52cc06a6f895488afab57d67474ae, type: 2}
+  - PlayerHealth: {instanceID: 0}
+  - PlayerStamina: {instanceID: 0}
+  - MovementBehaviour: {instanceID: 0}
+  - AttackBehaviour: {instanceID: 0}
+  - MovementAction: {fileID: -1185196698384204047, guid: 833e564cc3fe5d74aacab14a13954dee, type: 3}
+  - AttackAction: {fileID: -1863234303092909767, guid: 833e564cc3fe5d74aacab14a13954dee, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
