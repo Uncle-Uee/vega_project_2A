@@ -1,4 +1,3 @@
-using Rogue.Data;
 using Rogue.General.Entity;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -17,15 +16,9 @@ namespace Rogue.Player
         public InputActionReference InteractionAction;
         public PlayerControls PlayerControls;
 
-
-        [Header("Save Data")]
-        public GameData GameData;
-
         [Header("Debug Values")]
         public Vector2 InputAxis = Vector2.zero;
         public bool Interact = false;
-        public bool Save = false;
-        public bool Load = false;
 
         #endregion
 
@@ -44,16 +37,6 @@ namespace Rogue.Player
         private void Update()
         {
             ProcessInput();
-
-            if (Save)
-            {
-                GameData.Save(gameObject.name);
-            }
-
-            if (Load)
-            {
-                GameData.Load(gameObject.name);
-            }
         }
 
         private void FixedUpdate()
@@ -79,9 +62,6 @@ namespace Rogue.Player
         {
             InputAxis.x = Input.GetAxisRaw("Horizontal");
             InputAxis.y = Input.GetAxisRaw("Vertical");
-
-            Save = Input.GetKeyDown(KeyCode.O);
-            Load = Input.GetKeyDown(KeyCode.P);
         }
 
         #endregion

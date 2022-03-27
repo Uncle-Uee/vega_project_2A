@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ee699aff33d45e34f91407d1f2d3a74e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - ManagersSo: {fileID: 11400000, guid: dcb459396b920394c844e92aab63f51a, type: 2}
+  - EventsSo: {fileID: 11400000, guid: e884e32130847df4eb5d3fe067a22b9e, type: 2}
+  - HealthImage: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
