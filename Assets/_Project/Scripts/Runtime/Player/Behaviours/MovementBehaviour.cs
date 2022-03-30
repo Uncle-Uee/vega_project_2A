@@ -23,6 +23,8 @@ namespace Rogue.Player
         [Header("Movement Status")]
         public bool IsMoving = false;
 
+        private PlayerEntity _playerEntity;
+
         private Vector2 _target;
         private Vector2 _current;
         private Vector2 _velocity;
@@ -32,12 +34,23 @@ namespace Rogue.Player
 
         #region UNITY METHODS
 
+        private void Awake()
+        {
+            _playerEntity = GetComponent<PlayerEntity>();
+        }
+
         #endregion
 
         #region METHODS
 
         public void Movement(Vector2 inputAxis)
         {
+            if (_playerEntity.IsAttacking)
+            {
+                Rigidbody2D.velocity = Vector2.zero;
+                return;
+            }
+
             CheckInputForMovement(inputAxis);
             CheckInputForDirection(inputAxis);
 
@@ -64,6 +77,8 @@ namespace Rogue.Player
 
         private void CheckInputForDirection(Vector2 inputAxis)
         {
+            if (_playerEntity.IsAttacking) return;
+
             if (Mathf.Abs(inputAxis.x) > 0)
             {
                 _direction.x = inputAxis.x;
@@ -79,9 +94,9 @@ namespace Rogue.Player
             AnimationController.SetYDirection(_direction.y);
         }
 
-        public void CheckInputForMovement(Vector2 inputAxis)
+        private void CheckInputForMovement(Vector2 inputAxis)
         {
-            IsMoving = inputAxis != Vector2.zero;
+            _playerEntity.IsMoving = IsMoving = inputAxis != Vector2.zero;
             AnimationController.SetIsMoving(inputAxis != Vector2.zero);
         }
 

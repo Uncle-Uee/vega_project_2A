@@ -27,6 +27,7 @@ namespace Rogue.Attributes
         public float MaxArmor
         {
             get => Armor.MaxArmor;
+            set => Armor.MaxArmor = value;
         }
 
         public float CurrentMaxArmor
@@ -47,6 +48,12 @@ namespace Rogue.Attributes
 
         public virtual void ResetArmor()
         {
+            if (MaxArmor != 0 && CurrentMaxArmor == 0 && CurrentArmor == 0)
+            {
+                CurrentMaxArmor = MaxArmor;
+                return;
+            }
+
             CurrentArmor = CurrentMaxArmor;
             HasArmor = CurrentArmor > 0;
             UpdateArmorUI();
@@ -75,6 +82,7 @@ namespace Rogue.Attributes
             CurrentArmor -= value;
             if (CurrentArmor < 0) CurrentArmor = 0;
             HasArmor = CurrentArmor > 0;
+            UpdateArmorUI();
             if (HasArmor)
             {
                 takeDamageCallback?.Invoke();

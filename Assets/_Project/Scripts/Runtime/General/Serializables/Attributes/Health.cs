@@ -12,9 +12,5 @@ namespace Rogue.Serializables
         public float CurrentHealth;
 
         #endregion
-
-        #region METHODS
-
-        #endregion
     }
 }

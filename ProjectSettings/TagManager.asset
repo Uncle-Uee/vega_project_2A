@@ -5,6 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Weapon
+  - Item/Scroll
+  - Item/Food
+  - Item/Key
+  - Item/Coin
+  - Item/Potion
+  - Item/Weapon
+  - Trap
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -15,8 +23,8 @@ TagManager:
   - Enemy
   - Weapon/Player
   - Weapon/Enemy
-  - 
-  - 
+  - Item
+  - Trap
   - 
   - 
   - 
@@ -57,12 +65,21 @@ TagManager:
   - name: Enviro-Bottom
     uniqueID: 3606568285
     locked: 0
+  - name: Traps
+    uniqueID: 2429917077
+    locked: 0
   - name: Weapon
     uniqueID: 2854533073
+    locked: 0
+  - name: Item
+    uniqueID: 2727517937
     locked: 0
   - name: Entity
     uniqueID: 3787565307
     locked: 0
   - name: Enviro-Top
     uniqueID: 2865629165
+    locked: 0
+  - name: UI
+    uniqueID: 2173084583
     locked: 0

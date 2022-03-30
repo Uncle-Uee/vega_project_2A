@@ -45,11 +45,17 @@ namespace Rogue.Attributes
 
         #region METHODS
 
-        public virtual void ResetHealth(float newCurrentMaxHealth = 0)
+        public virtual void ResetHealth()
         {
-            if (newCurrentMaxHealth != 0) CurrentMaxHealth = newCurrentMaxHealth;
+            if (MaxHealth != 0 && CurrentMaxHealth == 0 && CurrentHealth == 0)
+            {
+                CurrentMaxHealth = MaxHealth;
+                return;
+            }
+
             CurrentHealth = CurrentMaxHealth;
             HasHealth = CurrentHealth > 0;
+            UpdateHealthUI();
         }
 
         public virtual void IncreaseMaxHealth(float value)
@@ -75,6 +81,7 @@ namespace Rogue.Attributes
             CurrentHealth -= value;
             if (CurrentHealth < 0) CurrentHealth = 0;
             HasHealth = CurrentHealth > 0;
+            UpdateHealthUI();
             if (HasHealth)
             {
                 takeDamageCallback?.Invoke();

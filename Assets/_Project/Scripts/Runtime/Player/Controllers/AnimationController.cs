@@ -13,6 +13,7 @@ namespace Rogue.Player
         private readonly int YDirection = Animator.StringToHash("YDirection");
         private readonly int IsMoving = Animator.StringToHash("IsMoving");
         private readonly int IsAttacking = Animator.StringToHash("IsAttacking");
+        private readonly int Attack = Animator.StringToHash("Attack");
         private readonly int Death = Animator.StringToHash("Death");
         private readonly int PickupItem = Animator.StringToHash("PickupItem");
         private readonly int SpecialArt_1 = Animator.StringToHash("SpecialArt_1");
@@ -39,6 +40,16 @@ namespace Rogue.Player
         public void SetIsMoving(bool value)
         {
             Animator.SetBool(IsMoving, value);
+        }
+
+        public void SetIsAttacking(bool value)
+        {
+            Animator.SetBool(IsAttacking, value);
+        }
+
+        public void OnAttack()
+        {
+            Animator.SetTrigger(Attack);
         }
 
         #endregion

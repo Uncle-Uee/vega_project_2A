@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_Project/Scenes/demo-world-scene.unity
+    guid: 117ed14c8fb72cc40be0d36753ac4a43
   m_configObjects: {}
