@@ -43,6 +43,12 @@ namespace Rogue.Attributes
 
         #endregion
 
+        #region PROPERTIES
+
+        public float CurrentHealthPercentage => Mathf.Clamp01(MathUtility.GetPercentageFromValue(CurrentHealth, 0, CurrentMaxHealth));
+
+        #endregion
+
         #region METHODS
 
         public virtual void ResetHealth()

@@ -1,3 +1,4 @@
+using Rogue.General;
 using UnityEngine;
 
 namespace Rogue.Player
@@ -50,6 +51,8 @@ namespace Rogue.Player
                 Rigidbody2D.velocity = Vector2.zero;
                 return;
             }
+
+            if (Globals.GameSpeed == 0) return;
 
             CheckInputForMovement(inputAxis);
             CheckInputForDirection(inputAxis);

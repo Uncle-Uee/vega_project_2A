@@ -42,6 +42,8 @@ namespace Rogue.Attributes
             set => Armor.CurrentArmor = value;
         }
 
+        public float CurrentArmorPercentage => Mathf.Clamp01(MathUtility.GetPercentageFromValue(CurrentArmor, 0, CurrentMaxArmor));
+
         #endregion
 
         #region METHODS

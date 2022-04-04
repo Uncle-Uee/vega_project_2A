@@ -26,19 +26,24 @@ namespace Rogue.UI
 
         #region CANVAS STATE METHODS
 
-        public void ActivateCanvasDelay()
+        public virtual void ActivateCanvas()
+        {
+            CurrentCanvas.enabled = true;
+        }
+
+        public virtual void ActivateCanvasDelay()
         {
             StartCoroutine(ActivateCanvasDelayRoutine());
         }
 
-        private IEnumerator ActivateCanvasDelayRoutine()
+        public virtual IEnumerator ActivateCanvasDelayRoutine()
         {
             WaitForSeconds delay = new WaitForSeconds(ActivateDelay);
             yield return delay;
             CurrentCanvas.enabled = true;
         }
 
-        public void DeactivateCanvas()
+        public virtual void DeactivateCanvas()
         {
             CurrentCanvas.enabled = false;
         }
@@ -50,7 +55,7 @@ namespace Rogue.UI
         /// <summary>
         /// Activate Object
         /// </summary>
-        public void Activate()
+        public void ActivateGO()
         {
             gameObject.SetActive(true);
         }
@@ -58,7 +63,7 @@ namespace Rogue.UI
         /// <summary>
         /// Deactivate Object
         /// </summary>
-        public void Deactivate()
+        public virtual void DeactivateGO()
         {
             gameObject.SetActive(false);
         }
@@ -66,7 +71,7 @@ namespace Rogue.UI
         /// <summary>
         /// Destroy Object
         /// </summary>
-        public void DestroyInstance()
+        public virtual void DestroyGO()
         {
             Destroy(this.gameObject);
         }
@@ -81,7 +86,7 @@ namespace Rogue.UI
         /// Initialization of Objects, Fields and Properties
         /// Subscribe to Events
         /// </summary>
-        public void DoOnAwake()
+        public virtual void DoOnAwake()
         {
         }
 
@@ -91,7 +96,7 @@ namespace Rogue.UI
         /// Reset Properties, Objects and Fields
         /// Subscribe to Events
         /// </summary>
-        public void DoOnEnable()
+        public virtual void DoOnEnable()
         {
         }
 
@@ -102,7 +107,7 @@ namespace Rogue.UI
         /// Subscribe to Events
         /// DontDestroyOnLoad
         /// </summary>
-        public void DoOnStart()
+        public virtual void DoOnStart()
         {
         }
 
@@ -111,7 +116,7 @@ namespace Rogue.UI
         /// Example:
         /// Unsubscribe from Events
         /// </summary>
-        public void DoOnDisable()
+        public virtual void DoOnDisable()
         {
         }
 
@@ -120,7 +125,7 @@ namespace Rogue.UI
         /// Example:
         /// Dispose of any Objects
         /// </summary>
-        public void DoOnDestroy()
+        public virtual void DoOnDestroy()
         {
         }
 

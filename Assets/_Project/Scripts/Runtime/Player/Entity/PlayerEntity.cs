@@ -1,6 +1,6 @@
-using CyberJellyFish.Utility;
 using Rogue.Attributes;
 using Rogue.General.Entity;
+using Rogue.Managers;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,6 +16,7 @@ namespace Rogue.Player
 
         [Header("Health")]
         public EntityHealth Health;
+        public EntityArmor Armor;
 
         [Header("Input Actions")]
         public InputActionReference MovementAction;
@@ -50,18 +51,17 @@ namespace Rogue.Player
         private void Update()
         {
             ProcessInput();
-
-            #region BEHAVIOURS
-
-            DoAttack();
-            SwapWeapon();
-
-            #endregion
         }
 
         private void FixedUpdate()
         {
             MovementBehaviour.Movement(InputAxis);
+        }
+
+        private void LateUpdate()
+        {
+            DoAttack();
+            SwapWeapon();
         }
 
         private void OnDisable()
@@ -76,7 +76,7 @@ namespace Rogue.Player
 
         #endregion
 
-        #region PROCESS INPUT
+        #region PROCESS INPUT METHODS
 
         private void ProcessInput()
         {
@@ -86,6 +86,10 @@ namespace Rogue.Player
             Attack = Input.GetButtonDown("Fire1");
             Interact = Input.GetKeyDown(KeyCode.E);
         }
+
+        #endregion
+
+        #region BEHAVIOUR METHODS
 
         private void DoAttack()
         {
@@ -103,8 +107,33 @@ namespace Rogue.Player
 
         public override void TakeDamage(float damage)
         {
-            Health.LoseHealth(damage);
-            EventsManager.Instance.OnUpdateHealth(Mathf.Clamp01(MathUtility.GetPercentageFromValue(Health.CurrentHealth, 0, Health.CurrentMaxHealth)));
+            if (Armor.HasArmor)
+            {
+                float result = Armor.CurrentArmor - damage;
+                Armor.LoseArmor(damage);
+                EventsManager.Instance.OnUpdateArmor(Armor.CurrentArmorPercentage);
+                if (result < 0) Health.LoseHealth(Mathf.Abs(result));
+                EventsManager.Instance.OnUpdateHealth(Health.CurrentHealthPercentage);
+            }
+
+            else if (Health.HasHealth)
+            {
+                Health.LoseHealth(damage);
+                EventsManager.Instance.OnUpdateHealth(Health.CurrentHealthPercentage);
+            }
+
+            if (!Health.HasHealth) EventsManager.Instance.OnPlayerDeath();
+        }
+
+        #endregion
+
+        #region ENTITY METHODS
+
+        public override void Deactivate()
+        {
+            base.Deactivate();
+            // Play Death Sound!
+            
         }
 
         #endregion
@@ -121,6 +150,8 @@ namespace Rogue.Player
             _playerControls.Enable();
             MovementAction.action.Enable();
             InteractionAction.action.Enable();
+
+            EventsManager.Instance.PlayerDeath += Deactivate;
         }
 
         public override void DoOnDisable()
@@ -128,6 +159,8 @@ namespace Rogue.Player
             _playerControls.Disable();
             MovementAction.action.Disable();
             InteractionAction.action.Disable();
+
+            EventsManager.Instance.PlayerDeath -= Deactivate;
         }
 
         public override void DoOnDestroy()

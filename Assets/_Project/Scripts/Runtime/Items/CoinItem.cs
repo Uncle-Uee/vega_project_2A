@@ -1,3 +1,4 @@
+using Rogue.Managers;
 using UnityEngine;
 
 namespace Rogue.Items
@@ -7,7 +8,7 @@ namespace Rogue.Items
         #region VARIABLES
 
         [Header("Required ScriptableObjects")]
-        public PlayerData PlayerData;
+        public PlayerDataSo PlayerData;
 
         [Header("Coin Properties")]
         public int Amount = 10;

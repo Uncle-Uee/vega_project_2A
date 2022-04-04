@@ -1,4 +1,5 @@
 using System.Collections;
+using Rogue.General;
 using Rogue.Serializables;
 using UnityEngine;
 
@@ -51,9 +52,11 @@ namespace Rogue.Player
 
         public void EquipWeapon(Weapon weapon)
         {
-            if (!IsSwordEquipped)
+            if (PrimaryWeapon == null && !IsSwordEquipped)
             {
                 PrimaryWeapon = weapon;
+                UsingPrimary = true;
+                IsSwordEquipped = true;
             }
             else if (SecondaryWeapon == null) SecondaryWeapon = weapon;
         }

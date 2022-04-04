@@ -1,4 +1,3 @@
-using Rogue.Player;
 using Rogue.Serializables;
 using UnityEngine;
 
@@ -17,9 +16,6 @@ namespace Rogue.Items
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (!other.CompareTag("Player")) return;
-            other.GetComponent<AttackBehaviour>().EquipWeapon(WeaponData);
-            Destroy(gameObject);
         }
 
         #endregion

@@ -1,17 +1,30 @@
 using System;
 using UnityEngine;
 
-namespace Rogue
+namespace Rogue.Managers
 {
+    [DefaultExecutionOrder(-100)]
     public class EventsManager : MonoBehaviour
     {
-        #region VARIABLES
+        #region GLOBAL VARIABLES
 
         public static EventsManager Instance;
+
+        #endregion
+
+        #region PLAYER EVENTS
+
+        public event Action PlayerDeath;
+
+        #endregion
+
+        #region HUD EVENTS
 
         public event Action<string> UpdateGoldText;
 
         public event Action<float> UpdateHealth;
+
+        public event Action<float> UpdateArmor;
 
         #endregion
 
@@ -19,7 +32,7 @@ namespace Rogue
 
         private void Awake()
         {
-            if (Instance != this) Destroy(gameObject);
+            if (Instance != null && Instance != this) Destroy(gameObject);
 
             Instance = this;
 
@@ -28,7 +41,16 @@ namespace Rogue
 
         #endregion
 
-        #region METHODS
+        #region PLAYER EVENT METHODS
+
+        public void OnPlayerDeath()
+        {
+            PlayerDeath?.Invoke();
+        }
+
+        #endregion
+
+        #region HUD EVENT METHODS
 
         public void OnUpdateGoldText(string amount)
         {
@@ -38,6 +60,11 @@ namespace Rogue
         public void OnUpdateHealth(float amount)
         {
             UpdateHealth?.Invoke(amount);
+        }
+
+        public void OnUpdateArmor(float amount)
+        {
+            UpdateArmor?.Invoke(amount);
         }
 
         #endregion

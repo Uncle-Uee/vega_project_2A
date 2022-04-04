@@ -1,3 +1,3 @@
-namespace Rogue.General.Globals
+namespace Rogue.General
 {
 }

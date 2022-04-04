@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Rogue
 {
     [CreateAssetMenu(fileName = "PlayerDataSo", menuName = "ScriptableObjects/Player Data")]
-    public class PlayerData : ScriptableObject
+    public class PlayerDataSo : ScriptableObject
     {
         #region VARIABLES
 

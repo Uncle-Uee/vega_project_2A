@@ -1,14 +1,15 @@
 using System;
+using Rogue.Managers;
 using UnityEngine;
 
 namespace Rogue.UI
 {
-    public class HUDController : UIControllerBase
+    public class HudUIController : UIControllerBase
     {
         #region VARIABLES
 
         [Header("Required ScriptableObjects")]
-        public PlayerData PlayerData;
+        public PlayerDataSo PlayerData;
 
         [Header("Player Info Panel")]
         public PlayerInfoPanel PlayerInfoPanel;
@@ -21,6 +22,7 @@ namespace Rogue.UI
         {
             EventsManager.Instance.UpdateGoldText += UpdateGold;
             EventsManager.Instance.UpdateHealth += UpdateHealth;
+            EventsManager.Instance.UpdateArmor += UpdateArmor;
         }
 
         public void Start()
@@ -32,6 +34,7 @@ namespace Rogue.UI
         {
             EventsManager.Instance.UpdateGoldText -= UpdateGold;
             EventsManager.Instance.UpdateHealth -= UpdateHealth;
+            EventsManager.Instance.UpdateArmor -= UpdateArmor;
         }
 
         #endregion
