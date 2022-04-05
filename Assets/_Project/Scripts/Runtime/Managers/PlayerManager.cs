@@ -8,23 +8,47 @@ namespace Rogue.Managers
     {
         #region VARIABLES
 
-        [Header("Players")]
-        public List<PlayerEntity> PlayerPrefabs = new List<PlayerEntity>();
-
         [Header("Player Properties")]
+        public PlayerEntity PlayerEntity;
         public Transform PlayerParent;
+
+        [Header("Players")]
+        public int SelectedPlayerIndex = 0;
+        public List<PlayerEntity> PlayerPrefabs = new List<PlayerEntity>();
 
         #endregion
 
         #region UNITY METHODS
 
+        private void OnEnable()
+        {
+            EventsManager.Instance.UnregisterPlayer += UnregisterPlayer;
+        }
+
+        private void OnDisable()
+        {
+            EventsManager.Instance.UnregisterPlayer -= UnregisterPlayer;
+        }
+
         #endregion
 
         #region METHODS
 
-        public void InstantiatePlayer(int playerIndex)
+        public void InstantiatePlayer()
         {
-            Instantiate(PlayerPrefabs[playerIndex], PlayerParent);
+            if (PlayerEntity) return;
+            PlayerEntity = Instantiate(PlayerPrefabs[SelectedPlayerIndex], PlayerParent);
+        }
+
+        public void DestroyPlayer()
+        {
+            if (!PlayerEntity) return;
+            PlayerEntity.DestroyInstance();
+        }
+
+        private void UnregisterPlayer()
+        {
+            PlayerEntity = null;
         }
 
         #endregion

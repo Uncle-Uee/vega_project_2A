@@ -10,6 +10,7 @@ namespace Rogue.UI
         #region VARIABLES
 
         [Header("Other Canvases")]
+        public TitleUIController TitleCanvas;
         public InGameUIController InGameCanvas;
         public HudUIController HudCanvas;
 
@@ -48,24 +49,26 @@ namespace Rogue.UI
             InGameCanvas.DeactivateCanvas();
             HudCanvas.DeactivateCanvas();
             ActivateCanvas();
-            Globals.PauseGameSpeed();
+            GameManager.Instance.GameOver();
         }
 
         private void ClickRestartButton()
         {
-            // ToDo - Activate the Player
-            // ToDo - Reset the Player Health and Armor
+            print("Restart");
             InGameCanvas.ActivateCanvas();
             HudCanvas.ActivateCanvas();
             DeactivateCanvas();
-            Globals.ResumeGameSpeed();
-            GameManager.Instance.PlayerEntity.Activate();
+            GameManager.Instance.GameRestart();
         }
 
         private void ClickQuitButton()
         {
-            // ToDo - Destroy the Player
-            // ToDo - Go Back to Title Menu
+            print("Quit");
+            TitleCanvas.ActivateCanvas();
+            InGameCanvas.DeactivateCanvas();
+            HudCanvas.DeactivateCanvas();
+            DeactivateCanvas();
+            GameManager.Instance.GameQuit();
         }
 
         #endregion

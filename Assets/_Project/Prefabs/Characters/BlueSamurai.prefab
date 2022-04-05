@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 8714429275627563608}
   - component: {fileID: 8714429275627563612}
   m_Layer: 3
-  m_Name: Knight
+  m_Name: BlueSamurai
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -219,7 +219,7 @@ SpriteRenderer:
   m_SortingLayerID: -507401989
   m_SortingLayer: 9
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0205cb8d0dae3ba419f4255a8fbaf594, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 61015de14db469f4a903c1e90dd75dac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -240,7 +240,7 @@ Animator:
   m_GameObject: {fileID: 8714429275627563585}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 61411d08ae90c3942b2ee72c1e9803a0, type: 2}
+  m_Controller: {fileID: 22100000, guid: e1ece3d1584465a4381d8931783e734d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -647,7 +647,7 @@ SpriteRenderer:
   m_SortingLayerID: -1440434223
   m_SortingLayer: 7
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 15ab01b2da0a6b54790e0c5c6c288e42, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0b46e39e41ff32a4e9a72114ade121ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

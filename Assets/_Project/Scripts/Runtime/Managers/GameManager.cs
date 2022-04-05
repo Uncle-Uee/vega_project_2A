@@ -1,3 +1,4 @@
+using Rogue.General;
 using Rogue.Player;
 using UnityEngine;
 
@@ -5,12 +6,25 @@ namespace Rogue.Managers
 {
     public class GameManager : MonoBehaviour
     {
-        #region VARIABLES
-
-        [Header("Player Entity")]
-        public PlayerEntity PlayerEntity;
+        #region SINGLETON INSTANCE
 
         public static GameManager Instance;
+
+        #endregion
+
+        #region VARIABLES
+
+        [Header("Managers")]
+        public PlayerManager PlayerManager;
+
+        #endregion
+
+        #region PROPERTIES
+
+        public PlayerEntity PlayerEntity
+        {
+            get => PlayerManager.PlayerEntity;
+        }
 
         #endregion
 
@@ -25,30 +39,34 @@ namespace Rogue.Managers
             DontDestroyOnLoad(gameObject);
         }
 
-        private void OnEnable()
-        {
-            EventsManager.Instance.RegisterPlayer += RegisterPlayer;
-            EventsManager.Instance.UnregisterPlayer += UnregisterPlayer;
-        }
-
-        private void OnDisable()
-        {
-            EventsManager.Instance.RegisterPlayer -= RegisterPlayer;
-            EventsManager.Instance.UnregisterPlayer -= UnregisterPlayer;
-        }
-
         #endregion
 
-        #region METHODS
+        #region GAME EVENT METHODS
 
-        private void RegisterPlayer(PlayerEntity playerEntity)
+        public void GameStart()
         {
-            PlayerEntity = playerEntity;
+            print("Game Start");
+            PlayerManager.InstantiatePlayer();
+            PlayerEntity.Activate();
         }
 
-        private void UnregisterPlayer()
+        public void GameOver()
         {
-            PlayerEntity = null;
+            print("Game Over");
+            Globals.PauseGameSpeed();
+        }
+
+        public void GameRestart()
+        {
+            print("Game Restart");
+            Globals.ResumeGameSpeed();
+            PlayerEntity.Activate();
+        }
+
+        public void GameQuit()
+        {
+            print("Game Quit");
+            PlayerManager.DestroyPlayer();
         }
 
         #endregion

@@ -161,7 +161,6 @@ namespace Rogue.Player
             InteractionAction.action.Enable();
 
             EventsManager.Instance.PlayerDeath += Deactivate;
-            EventsManager.Instance.OnRegisterPlayer(this);
         }
 
         public override void DoOnDisable()
@@ -169,7 +168,6 @@ namespace Rogue.Player
             _playerControls.Disable();
             MovementAction.action.Disable();
             InteractionAction.action.Disable();
-
             EventsManager.Instance.PlayerDeath -= Deactivate;
         }
 
@@ -178,6 +176,7 @@ namespace Rogue.Player
             _playerControls.Dispose();
             MovementAction.action.Dispose();
             InteractionAction.action.Dispose();
+
             EventsManager.Instance.OnUnregisterPlayer();
         }
 

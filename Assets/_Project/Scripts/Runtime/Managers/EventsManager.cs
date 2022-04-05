@@ -30,17 +30,11 @@ namespace Rogue.Managers
 
         public event Action PlayerDeath;
 
-        public event Action<PlayerEntity> RegisterPlayer;
         public event Action UnregisterPlayer;
 
         public void OnPlayerDeath()
         {
             PlayerDeath?.Invoke();
-        }
-
-        public void OnRegisterPlayer(PlayerEntity playerEntity)
-        {
-            RegisterPlayer?.Invoke(playerEntity);
         }
 
         public void OnUnregisterPlayer()

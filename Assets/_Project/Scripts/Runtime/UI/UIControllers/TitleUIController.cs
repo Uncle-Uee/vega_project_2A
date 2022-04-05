@@ -1,4 +1,5 @@
 using Rogue.General;
+using Rogue.Managers;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,12 +10,14 @@ namespace Rogue.UI
         #region VARIABLES
 
         [Header("Other Canvases")]
+        public CharacterUIController CharacterCanvas;
         public InGameUIController InGameCanvas;
         public HudUIController HudCanvas;
         public SettingsUIController SettingsCanvas;
 
         [Header("Buttons")]
         public Button PlayButton;
+        public Button CharacterButton;
         public Button AchievementsButton;
         public Button SettingsButton;
         public Button QuitButton;
@@ -25,6 +28,7 @@ namespace Rogue.UI
 
         private void OnEnable()
         {
+            CharacterButton.onClick.AddListener(ClickCharacterButton);
             PlayButton.onClick.AddListener(ClickPlayButton);
             AchievementsButton.onClick.AddListener(ClickAchievementsButton);
             SettingsButton.onClick.AddListener(ClickSettingsButton);
@@ -33,6 +37,7 @@ namespace Rogue.UI
 
         private void OnDisable()
         {
+            CharacterButton.onClick.RemoveAllListeners();
             PlayButton.onClick.RemoveAllListeners();
             AchievementsButton.onClick.RemoveAllListeners();
             SettingsButton.onClick.RemoveAllListeners();
@@ -45,9 +50,19 @@ namespace Rogue.UI
 
         private void ClickPlayButton()
         {
+            print("Play");
             Globals.ResumeGameSpeed();
             InGameCanvas.ActivateCanvas();
             HudCanvas.ActivateCanvas();
+            DeactivateCanvas();
+            GameManager.Instance.GameStart();
+        }
+
+        private void ClickCharacterButton()
+        {
+            print("Character Selection");
+            CharacterCanvas.ActivateCanvas();
+            CharacterCanvas.ActivateCharacterPortrait();
             DeactivateCanvas();
         }
 
