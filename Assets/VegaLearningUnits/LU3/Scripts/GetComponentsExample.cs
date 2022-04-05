@@ -16,19 +16,18 @@ public class GetComponentsExample : MonoBehaviour
 
     private void Awake()
     {
-        // Get Parent Object Transform
+        // Get Component on Object (Parent)
+        Transform myTransform = GetComponent<Transform>();
+
+        // Get a Component on the Parent From a Child
         _parentTransform = GetComponentInParent<Transform>();
-        
-        // Get Sprite Renderer of the First Child (Only Gets the First Childs Sprite Renderer even if there are many other children)
+
+        // Get Sprite Renderer of the First Child (Only Gets the First Child's Sprite Renderer even if there are many other children)
         _firstChildSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        
+
         // Get All the Sprite Renderers attached to each Child Object
         ChildrenSpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
     }
-
-    #endregion
-
-    #region METHODS
 
     #endregion
 }
