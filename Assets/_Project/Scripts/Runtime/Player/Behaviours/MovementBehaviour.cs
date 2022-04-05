@@ -46,14 +46,13 @@ namespace Rogue.Player
 
         public void Movement(Vector2 inputAxis)
         {
+            if (Globals.GameSpeed == 0) return;
+            
             if (_playerEntity.IsAttacking)
             {
                 Rigidbody2D.velocity = Vector2.zero;
                 return;
             }
-
-            if (Globals.GameSpeed == 0) return;
-
             CheckInputForMovement(inputAxis);
             CheckInputForDirection(inputAxis);
 

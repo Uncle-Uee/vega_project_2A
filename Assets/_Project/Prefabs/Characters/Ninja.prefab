@@ -101,7 +101,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1440434223
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2e7b9c39db70edb4caadd27940ca84cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -131,7 +131,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.375, y: 0.6875}
+    oldSize: {x: 0.4375, y: 0.75}
     newSize: {x: 0.75, y: 1.375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -183,6 +183,13 @@ GameObject:
   - component: {fileID: 944304911834183276}
   - component: {fileID: 944304911834183277}
   - component: {fileID: 944304911834183274}
+  - component: {fileID: 3991227088362192317}
+  - component: {fileID: 2257454288919441155}
+  - component: {fileID: 6436713741560136247}
+  - component: {fileID: 6756013677920803406}
+  - component: {fileID: 7372545393108841766}
+  - component: {fileID: 8072890997463323271}
+  - component: {fileID: 7041367152484085220}
   m_Layer: 3
   m_Name: Ninja
   m_TagString: Player
@@ -244,7 +251,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -507401989
-  m_SortingLayer: 7
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 179f515316bea29499a2c6f7ab057b0c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -313,3 +320,128 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &3991227088362192317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944304911834183265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a1a4df45ad6c01449d3a0861d670d3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackBehaviour: {fileID: 7041367152484085220}
+  MovementBehaviour: {fileID: 8072890997463323271}
+  Health: {fileID: 6756013677920803406}
+  Armor: {fileID: 7372545393108841766}
+  MovementAction: {fileID: 5539987148687378174, guid: da367f43b0593b147ac1a1665cc85bee, type: 3}
+  InteractionAction: {fileID: -7011930322112967224, guid: da367f43b0593b147ac1a1665cc85bee, type: 3}
+  IsMoving: 0
+  IsAttacking: 0
+  InputAxis: {x: 0, y: 0}
+  Interact: 0
+  Swap: 0
+  Attack: 0
+--- !u!114 &2257454288919441155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944304911834183265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64b62d0a85be9844aaa136dba47d5c5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 944304911834183276}
+--- !u!114 &6436713741560136247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944304911834183265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab789ea037782a3408d5c7b182f180e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6756013677920803406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944304911834183265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee699aff33d45e34f91407d1f2d3a74e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health:
+    MaxHealth: 10
+    CurrentMaxHealth: 10
+    CurrentHealth: 10
+  HasHealth: 1
+  CanGetHealth: 1
+  HealthImage: {fileID: 0}
+--- !u!114 &7372545393108841766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944304911834183265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b21e0c6ad3670644686ba43ef40c5270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Armor:
+    MaxArmor: 10
+    CurrentMaxArmor: 10
+    CurrentArmor: 10
+  HasArmor: 1
+  CanGetArmor: 1
+  ArmorImage: {fileID: 0}
+--- !u!114 &8072890997463323271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944304911834183265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c2e1b40c92ad034892dcaaf6fc825a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rigidbody2D: {fileID: 944304911834183274}
+  AnimationController: {fileID: 2257454288919441155}
+  Speed: 1
+  DiagonalSpeedPercentage: 0.75
+  SmoothTime: 0.1
+  IsMoving: 0
+--- !u!114 &7041367152484085220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944304911834183265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 620c646ac437f3945a516b92a152bd0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AnimationController: {fileID: 2257454288919441155}
+  PrimaryWeapon:
+    AttackPower: 0
+  SecondaryWeapon:
+    AttackPower: 0
+  IsSwordEquipped: 0
+  UsingPrimary: 1
+  IsAttacking: 0

@@ -129,11 +129,20 @@ namespace Rogue.Player
 
         #region ENTITY METHODS
 
+        public override void Activate()
+        {
+            gameObject.SetActive(true);
+            Health.ResetHealth();
+            Armor.ResetArmor();
+            EventsManager.Instance.OnUpdateHealth(Health.CurrentHealthPercentage);
+            EventsManager.Instance.OnUpdateArmor(Armor.CurrentArmorPercentage);
+            transform.position = Vector3.zero;
+        }
+
         public override void Deactivate()
         {
-            base.Deactivate();
+            gameObject.SetActive(false);
             // Play Death Sound!
-            
         }
 
         #endregion
@@ -152,6 +161,7 @@ namespace Rogue.Player
             InteractionAction.action.Enable();
 
             EventsManager.Instance.PlayerDeath += Deactivate;
+            EventsManager.Instance.OnRegisterPlayer(this);
         }
 
         public override void DoOnDisable()
@@ -168,6 +178,7 @@ namespace Rogue.Player
             _playerControls.Dispose();
             MovementAction.action.Dispose();
             InteractionAction.action.Dispose();
+            EventsManager.Instance.OnUnregisterPlayer();
         }
 
         #endregion
