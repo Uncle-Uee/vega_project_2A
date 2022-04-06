@@ -300,6 +300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackBehaviour: {fileID: 8714429275627563612}
   MovementBehaviour: {fileID: 8714429275627563608}
+  AnimationController: {fileID: 8714429275627563609}
   Health: {fileID: 8714429275627563611}
   Armor: {fileID: 8714429275627563610}
   MovementAction: {fileID: 5539987148687378174, guid: da367f43b0593b147ac1a1665cc85bee, type: 3}

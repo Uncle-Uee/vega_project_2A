@@ -14,6 +14,9 @@ namespace Rogue.Player
         public AttackBehaviour AttackBehaviour;
         public MovementBehaviour MovementBehaviour;
 
+        [Header("Controllers")]
+        public AnimationController AnimationController;
+
         [Header("Health")]
         public EntityHealth Health;
         public EntityArmor Armor;
@@ -122,7 +125,9 @@ namespace Rogue.Player
                 EventsManager.Instance.OnUpdateHealth(Health.CurrentHealthPercentage);
             }
 
-            if (!Health.HasHealth) EventsManager.Instance.OnPlayerDeath();
+            if (Health.HasHealth) return;
+            EventsManager.Instance.OnPlayerDeath();
+            AnimationController.OnDeath();
         }
 
         #endregion
@@ -131,18 +136,12 @@ namespace Rogue.Player
 
         public override void Activate()
         {
-            gameObject.SetActive(true);
+            AnimationController.ResetAnimator();
             Health.ResetHealth();
             Armor.ResetArmor();
             EventsManager.Instance.OnUpdateHealth(Health.CurrentHealthPercentage);
             EventsManager.Instance.OnUpdateArmor(Armor.CurrentArmorPercentage);
             transform.position = Vector3.zero;
-        }
-
-        public override void Deactivate()
-        {
-            gameObject.SetActive(false);
-            // Play Death Sound!
         }
 
         #endregion
@@ -159,8 +158,6 @@ namespace Rogue.Player
             _playerControls.Enable();
             MovementAction.action.Enable();
             InteractionAction.action.Enable();
-
-            EventsManager.Instance.PlayerDeath += Deactivate;
         }
 
         public override void DoOnDisable()
@@ -168,7 +165,6 @@ namespace Rogue.Player
             _playerControls.Disable();
             MovementAction.action.Disable();
             InteractionAction.action.Disable();
-            EventsManager.Instance.PlayerDeath -= Deactivate;
         }
 
         public override void DoOnDestroy()

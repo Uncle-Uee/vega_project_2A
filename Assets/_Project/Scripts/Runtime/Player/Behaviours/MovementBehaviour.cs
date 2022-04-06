@@ -46,13 +46,12 @@ namespace Rogue.Player
 
         public void Movement(Vector2 inputAxis)
         {
-            if (Globals.GameSpeed == 0) return;
-            
             if (_playerEntity.IsAttacking)
             {
                 Rigidbody2D.velocity = Vector2.zero;
                 return;
             }
+
             CheckInputForMovement(inputAxis);
             CheckInputForDirection(inputAxis);
 
@@ -63,11 +62,11 @@ namespace Rogue.Player
 
             if (Mathf.Abs(inputAxis.x) > 0 && Mathf.Abs(inputAxis.y) > 0)
             {
-                _target *= Speed * DiagonalSpeedPercentage;
+                _target *= Speed * DiagonalSpeedPercentage * Globals.GameSpeed;
             }
             else
             {
-                _target *= Speed;
+                _target *= Speed * Globals.GameSpeed;
             }
 
             Rigidbody2D.velocity = Vector2.SmoothDamp(_velocity, _target, ref _current, SmoothTime);

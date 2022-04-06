@@ -60,6 +60,7 @@ namespace Rogue.Managers
         {
             print("Game Restart");
             Globals.ResumeGameSpeed();
+            // PlayerEntity.Deactivate();
             PlayerEntity.Activate();
         }
 
