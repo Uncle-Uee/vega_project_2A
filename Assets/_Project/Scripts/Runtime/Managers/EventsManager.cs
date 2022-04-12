@@ -1,5 +1,4 @@
 using System;
-using Rogue.Player;
 using UnityEngine;
 
 namespace Rogue.Managers
