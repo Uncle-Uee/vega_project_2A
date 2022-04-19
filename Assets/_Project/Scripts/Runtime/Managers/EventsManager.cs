@@ -28,13 +28,11 @@ namespace Rogue.Managers
         #region PLAYER EVENT METHODS
 
         public event Action PlayerDeath;
-
-        public event Action UnregisterPlayer;
-
         public void OnPlayerDeath()
         {
             PlayerDeath?.Invoke();
         }
+        public event Action UnregisterPlayer;
 
         public void OnUnregisterPlayer()
         {
