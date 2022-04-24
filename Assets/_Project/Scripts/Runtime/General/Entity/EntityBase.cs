@@ -1,8 +1,9 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Rogue.General.Entity
 {
-    public abstract class EntityBase : MonoBehaviour
+    public abstract class EntityBase : MonoBehaviour, IDamageable
     {
         #region STATE METHODS
 
@@ -42,20 +43,18 @@ namespace Rogue.General.Entity
 
         #region ENTITY METHODS
 
-        public virtual void TakeDamage(int damage)
-        {
-        }
-
         public virtual void TakeDamage(float damage)
         {
-        }
-
-        public virtual void TakeDamageOverTime(int damage, float time, int n)
-        {
+            //ToDo : Simple Implementation
         }
 
         public virtual void TakeDamageOverTime(float damage, float time, int n)
         {
+        }
+
+        public virtual IEnumerable TakeDamageRoutine(float damage, float time, int n)
+        {
+            yield return null;
         }
 
         #endregion

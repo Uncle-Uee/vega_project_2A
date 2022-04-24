@@ -1,12 +1,13 @@
 using System;
 using CyberJellyFish.Utility;
+using Rogue.General;
 using Rogue.Serializables;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Rogue.Attributes
 {
-    public class EntityHealth : MonoBehaviour
+    public class EntityHealth : MonoBehaviour, IHealable
     {
         #region VARIABLES
 
@@ -70,7 +71,7 @@ namespace Rogue.Attributes
             CurrentMaxHealth += value;
             if (CurrentMaxHealth > MaxHealth) CurrentMaxHealth = MaxHealth;
         }
-
+        
         public virtual void GetHealth(float value)
         {
             if (!CanGetHealth) return;
@@ -104,5 +105,6 @@ namespace Rogue.Attributes
         }
 
         #endregion
+        
     }
 }

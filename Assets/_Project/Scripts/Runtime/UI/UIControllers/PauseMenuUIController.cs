@@ -1,4 +1,5 @@
 using Rogue.General;
+using Rogue.Managers;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -77,6 +78,7 @@ namespace Rogue.UI
             print("Quit Level");
             TitleCanvas.ActivateCanvas();
             DeactivateCanvas();
+            GameManager.Instance.GameQuit();
         }
 
         #endregion

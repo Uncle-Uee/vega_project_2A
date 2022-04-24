@@ -63,18 +63,16 @@ namespace Rogue.Player
 
         public void Attack()
         {
-            StartCoroutine(AttackRoutine());
+            if (IsAttacking) return;
+            _playerEntity.IsAttacking = IsAttacking = true;
+            AnimationController.SetIsAttacking(IsAttacking);
         }
 
-        private IEnumerator AttackRoutine()
+        public void CancelAttack()
         {
-            WaitForSeconds attackDelay = new WaitForSeconds(_attackSpeed);
-            if (!IsSwordEquipped) yield break;
-            if (_playerEntity.IsAttacking) yield break;
-            _playerEntity.IsAttacking = IsAttacking = true;
-            AnimationController.OnAttack();
-            yield return attackDelay;
             _playerEntity.IsAttacking = IsAttacking = false;
+            AnimationController.SetIsAttacking(IsAttacking);
+            print("Stop Attacking");
         }
 
         #endregion

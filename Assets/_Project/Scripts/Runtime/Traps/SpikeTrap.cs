@@ -1,4 +1,4 @@
-using Rogue.General.Entity;
+using Rogue.General;
 using UnityEngine;
 
 namespace Rogue.Traps
@@ -17,9 +17,13 @@ namespace Rogue.Traps
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (!other.CompareTag("Player") && !other.CompareTag("Enemy")) return;
-            other.GetComponent<EntityBase>().TakeDamage(Damage);
+            other.GetComponent<IDamageable>()?.TakeDamage(Damage);
+            
+            // ?. => Null Propagation
+            // Checks the left side if it is null.
+            // If it is not null, do everything on the right
         }
-        
+
         #endregion
 
         #region METHODS
