@@ -1,4 +1,5 @@
 using Rogue.General;
+using Rogue.General.Entity;
 using UnityEngine;
 
 namespace Rogue.Traps

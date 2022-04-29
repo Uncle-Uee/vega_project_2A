@@ -4392,6 +4392,7 @@ GameObject:
   - component: {fileID: 990548798}
   - component: {fileID: 990548800}
   - component: {fileID: 990548801}
+  - component: {fileID: 990548802}
   m_Layer: 0
   m_Name: '[MANAGERS]'
   m_TagString: Untagged
@@ -4457,6 +4458,24 @@ MonoBehaviour:
   - {fileID: 8714429275627563591, guid: dad7e319b3492614d8ef1bd80b7e3439, type: 3}
   - {fileID: 8714429275627563591, guid: d0481919b0fd20c40b103ee49215f932, type: 3}
   - {fileID: 8714429275627563591, guid: dec613787a8da0c4aa4533fba5b519d7, type: 3}
+--- !u!114 &990548802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990548797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f90680823cfa140bc0e5ca7508c336, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TestDBConnection: 0
+  Host: Localhost
+  User: root
+  Password: root
+  Database: vega
+  TableName: users
 --- !u!1 &1021683622
 GameObject:
   m_ObjectHideFlags: 0
