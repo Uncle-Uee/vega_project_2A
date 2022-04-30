@@ -4470,12 +4470,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f90680823cfa140bc0e5ca7508c336, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TestDBConnection: 0
+  TestDBConnection: 1
   Host: Localhost
   User: root
-  Password: root
+  Password: 
   Database: vega
-  TableName: users
+  TableName: players
 --- !u!1 &1021683622
 GameObject:
   m_ObjectHideFlags: 0

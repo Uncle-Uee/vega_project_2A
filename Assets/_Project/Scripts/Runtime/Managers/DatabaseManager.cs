@@ -50,13 +50,24 @@ namespace Rogue.Managers
         private void Start()
         {
             TestConnection();
+
+            // AddNewPlayer("ubaid", "123");
+            // GetPlayer("naruto", "123");
+
+            // UpdatePlayer(6, 200);
+            // DeletePlayer(4);
+
         }
 
         #endregion
 
-
         #region METHODS
 
+        /// <summary>
+        /// Sign Up for a new Player
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
         public void AddNewPlayer(string username, string password)
         {
             try
@@ -83,6 +94,13 @@ namespace Rogue.Managers
             }
         }
 
+        /// <summary>
+        /// Deserialization or Loading
+        /// Loading Data of a Player
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public Player GetPlayer(string username, string password)
         {
             Player player = null;
@@ -112,7 +130,7 @@ namespace Rogue.Managers
                             }
                         }
                     }
-                    print($"Get Player - {username}.");
+                    print($"Get Player - {username} : {player.Money}.");
                 }
             }
             catch (MySqlException exception)
@@ -123,6 +141,11 @@ namespace Rogue.Managers
             return player;
         }
 
+        
+        /// <summary>
+        /// Get Information for Leaderboard
+        /// </summary>
+        /// <returns></returns>
         public List<Player> GetAllPlayers()
         {
             List<Player> players = null;
@@ -161,6 +184,12 @@ namespace Rogue.Managers
             return players;
         }
 
+        /// <summary>
+        /// Serialization or Saving
+        /// Saving Data of your Player to the Database
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="money"></param>
         public void UpdatePlayer(int id, int money)
         {
             try
@@ -232,6 +261,7 @@ namespace Rogue.Managers
                     connection.Open();
                     print("MySQL - Opened Connection");
                 }
+                // connection is cleaned from memory
             }
             catch (MySqlException exception)
             {
